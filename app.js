@@ -7,6 +7,16 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//db
+const mongoose = require('mongoose');
+try{
+  mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
+    console.log('資料庫連接成功');
+  })
+}catch(err){
+  console.log('資料庫連接錯誤',err);
+}
+
 var app = express();
 
 // view engine setup
