@@ -12,9 +12,10 @@ router.get('/', function(req, res, next) {
     console.log(err);
   }
 });
-router.get('/myfollows', async function(req, res, next) {
+router.get('/myfollows/:id', async function(req, res, next) {
   try{
-    get_myfollows(res, req);
+    const id = await req.params.id;
+    get_myfollows(res, req, id);
   }catch(err){
     console.log(err);
   }
