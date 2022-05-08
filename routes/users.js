@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const getAll = require('../controllers/get');
+const get_myfollows = require('../controllers/get_myfollows');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -13,10 +14,7 @@ router.get('/', function(req, res, next) {
 });
 router.get('/myfollows', async function(req, res, next) {
   try{
-    const users = await userModel.find({});
-
-    res.status(200).json(users);
-    console.log('取得users');
+    get_myfollows(res, req);
   }catch(err){
     console.log(err);
   }
