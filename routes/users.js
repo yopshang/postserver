@@ -1,15 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-// models
-const userModel = require('../models/user');
+const getAll = require('../controllers/get');
 
 /* GET users listing. */
-router.get('/', async function(req, res, next) {
+router.get('/', function(req, res, next) {
   try{
-    const users = await userModel.find({});
-    res.status(200).json(users);
-    console.log('取得users');
+    getAll(req, res)
   }catch(err){
     console.log(err);
   }
