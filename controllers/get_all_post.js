@@ -6,7 +6,7 @@ async function get_all_post(req, res, page){
         console.log(all_post);
         res.status(200).json({
             status: 'success',
-            all_post
+            all_post: JSON.stringify(all_post)
         })
     }catch(err){
         res.status(200).json({status: 'fail'})
