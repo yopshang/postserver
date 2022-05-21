@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Shang",
+        "email": "Shang@gmail.com",
+        "myposts":[
+            "62887a2cfbbc781e7e30851c",
+            "62887a2cfbbc781e7e30851d"
+        ],
+        "mylikes":[
+            "62887a2cfbbc781e7e30851c",
+            "62887a2cfbbc781e7e30851d"
+        ],
+        "mypicture": "",
+        "myfollows": []
+    },
+    {
+        "name": "Jack",
+        "email": "Jack@gmail.com",
+        "myposts":[
+            "62887a2cfbbc781e7e30851e",
+            "62887a2cfbbc781e7e30851f"
+        ],
+        "mylikes":[
+            "62887a2cfbbc781e7e30851c",
+            "62887a2cfbbc781e7e30851d"
+        ],
+        "mypicture": "",
+        "myfollows": []
+    },
+    {
+        "name": "Linda",
+        "email": "Linda@gmail.com",
+        "myposts":[
+            "62887a2cfbbc781e7e308520",
+            "62887a2cfbbc781e7e308521"
+        ],
+        "mylikes":[
+            "62887a2cfbbc781e7e30851c",
+            "62887a2cfbbc781e7e30851d"
+        ],
+        "mypicture": "",
+        "myfollows": []
+    }
+]
