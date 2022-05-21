@@ -5,8 +5,6 @@ const userModel = require('../models/user');
 async function postpost(req, res, post){
     try{
         if(post.id){
-            console.log('post', post);
-            // const users = await postModel.findById(id);
             await postModel.create(
                     {
                         postby: post.id,
@@ -15,6 +13,22 @@ async function postpost(req, res, post){
                     }
                 );
 
+            const myposts =  await postModel.find({postby: post.id});
+            var myposts_updated = [];
+            myposts.forEach(item=>{
+                myposts_updated.push(item._id)
+            })
+            await userModel.updateOne(
+                {
+                    _id: post.id
+                },
+                {
+                    $set:{
+                        myposts: myposts
+                    }
+                }
+                )
+            // 接下來要把新的 myposts updateOne 到 該 user 的 myposts 裡面
             res.status(200).json({
                 status: 'success',
                 message: '發布成功',
