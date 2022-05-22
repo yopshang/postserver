@@ -108,7 +108,23 @@ const postController = {
         }
         // console.log('result:', result);
         return result;
-    }
+    },
+    async delete_post(req, res, query){
+        const that = this;
+        try{
+            await postModel.findByIdAndDelete(query.id)
+            res.status(200).json({
+                status: 'success',
+                message: '成功',
+                id: query.id
+            })
+        }catch(err){
+            res.status(200).json({
+                status: 'fail',
+                message: '查無此id'
+            })
+        }
+    },
 
 }
 
