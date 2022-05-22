@@ -6,9 +6,10 @@ var logger = require('morgan');
 const bodyParser = require('body-parser');
 
 // routes
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
+const imgRouter = require('./routes/img');
 
 //db
 const mongoose = require('mongoose');
@@ -37,6 +38,7 @@ app.use(bodyParser.json());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
+app.use('/imgs', imgRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
