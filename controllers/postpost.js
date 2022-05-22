@@ -55,13 +55,15 @@ const postController = {
     async edit_post(req, res, query){
         const that = this;
         try{
-            console.log('returnset', that.returnSet(query));
+            const returnSet = await that.returnSet(query);
+            // console.log('returnset', returnSet);
+
             await postModel.updateOne(
                 {
                     _id: query.id
                 },
                 {
-                    $set: await that.returnSet(query)
+                    $set: returnSet
                 }
             )
             res.status(200).json({
@@ -92,14 +94,19 @@ const postController = {
         }
         if(body.comments){
             const myposts =  await postModel.findById(body.id);
-            const comments_new = [...myposts.comments,...body.comments]
+            var comments_new = myposts.comments;
+            comments_new.push(JSON.parse(body.comments));
+            console.log('comments_new', comments_new);
             result.comments = body.comments_new;
         }
         if(body.tags){
             const myposts =  await postModel.findById(body.id);
-            const myposts_new = [...myposts.tags,...body.tags]
-            result.tags = body.myposts_new;
+            const tags_new  = myposts.tags;
+            tags_new.push(JSON.parse(body.tags));
+
+            result.tags = body.tags_new;
         }
+        // console.log('result:', result);
         return result;
     }
 
