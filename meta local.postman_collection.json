@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "84ca9734-7224-4622-a6dd-f1efb62f1be0",
+		"name": "meta local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12615871"
+	},
+	"item": [
+		{
+			"name": "get my user data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/users?id=628886ecfbbc781e7e308909",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "628886ecfbbc781e7e308909"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/posts?id=62887a2cfbbc781e7e30851c&page=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "62887a2cfbbc781e7e30851c"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/posts?id=628886ecfbbc781e7e308909&img=test&content=天氣不好，哭哭",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "628886ecfbbc781e7e308909"
+						},
+						{
+							"key": "img",
+							"value": "test"
+						},
+						{
+							"key": "content",
+							"value": "天氣不好，哭哭"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add img",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/imgs?id=628886ecfbbc781e7e308909&img=test",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"imgs"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "628886ecfbbc781e7e308909"
+						},
+						{
+							"key": "img",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/posts?img=google&content=這是一個測試修改&id=628a0463fbbc781e7e30891c&comments={\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "img",
+							"value": "google"
+						},
+						{
+							"key": "content",
+							"value": "這是一個測試修改"
+						},
+						{
+							"key": "id",
+							"value": "628a0463fbbc781e7e30891c"
+						},
+						{
+							"key": "comments",
+							"value": "{\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletd id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/posts?id=628a0463fbbc781e7e30891c",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "img",
+							"value": "google",
+							"disabled": true
+						},
+						{
+							"key": "content",
+							"value": "這是一個測試修改",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "628a0463fbbc781e7e30891c"
+						},
+						{
+							"key": "comments",
+							"value": "{\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
