@@ -14,20 +14,26 @@ const postSchema = {
         type: String,
         required: [true, '請輸入內容']
     },
-    comment: {
-        id: {
-            type: String,
-            comment: String,
-            createAt: {
-                type: Date,
-                default: Date.now,
-            },
-            rel: 'User'
-        }
+    comments: {
+        type: Object,
+        default: ()=>[
+            {
+                id: '',
+                comment: '',
+                createAt: {
+                    type: Date,
+                    default: Date.now,
+                },
+            }
+        ]
     },
     likes: {
         type: Array,
         default: []
+    },
+    tags: {
+        type: Array,
+        default: ()=>[]
     }
 }
 

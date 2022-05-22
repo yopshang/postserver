@@ -53,8 +53,17 @@ const postController = {
     },
     // 編輯貼文
     async edit_post(req, res, query){
+        const that = this;
         try{
-            console.log(query);
+            console.log('returnset', that.returnSet(query));
+            await postModel.updateOne(
+                {
+                    _id: query.id
+                },
+                {
+                    $set: await that.returnSet(query)
+                }
+            )
             res.status(200).json({
                 status: 'success',
                 message: '成功',
@@ -66,6 +75,32 @@ const postController = {
                 message: '查無此id'
             })
         }
+    },
+    async returnSet(body){
+        let result={}
+        if(body.postby){
+            result.postby = body.postby;
+        }
+        if(body.img){
+            result.img = body.img;
+        }
+        if(body.content){
+            result.content = body.content;
+        }
+        if(body.likes){
+            result.likes = body.likes;
+        }
+        if(body.comments){
+            const myposts =  await postModel.findById(body.id);
+            const comments_new = [...myposts.comments,...body.comments]
+            result.comments = body.comments_new;
+        }
+        if(body.tags){
+            const myposts =  await postModel.findById(body.id);
+            const myposts_new = [...myposts.tags,...body.tags]
+            result.tags = body.myposts_new;
+        }
+        return result;
     }
 
 }
