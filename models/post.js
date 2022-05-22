@@ -10,11 +10,11 @@ const postSchema = {
         type: String,
         default: ''
     },
-    contents: {
+    content: {
         type: String,
         required: [true, '請輸入內容']
     },
-    comments: {
+    comment: {
         id: {
             type: String,
             comment: String,

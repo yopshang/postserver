@@ -3,7 +3,7 @@ const { param } = require('.');
 const router = express.Router();
 
 const get_all_post = require('../controllers/get_all_post');
-const post_post = require('../controllers/postpost');
+const postController = require('../controllers/postpost');
 
 router.get('/', function(req, res, next){
     const page = req.query.page;
@@ -13,11 +13,14 @@ router.get('/', function(req, res, next){
 router.post('/', function(req, res, next){
     const id = req.query.id,
           img = req.query.img,
-          contents = req.query.contents,
+          content = req.query.content,
           post = {
-            id, img, contents
+            id, img, content
           }
-    post_post(req, res, post);
+    postController.postpost(req, res, post);
+})
+router.patch('/', function(req, res, next){
+    postController.edit_post(req, res, req.query);
 })
 
 
