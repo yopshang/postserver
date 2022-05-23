@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "84ca9734-7224-4622-a6dd-f1efb62f1be0",
-		"name": "meta local",
+		"_postman_id": "cd3d85cd-d522-4155-850a-1c2704383901",
+		"name": "meta_heroku",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12615871"
 	},
@@ -54,7 +54,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts?id=62887a2cfbbc781e7e30851c&page=1",
+					"raw": "http://127.0.0.1:3000/posts?id=628b866e86bc72e068673dfd&page=1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -69,7 +69,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "62887a2cfbbc781e7e30851c"
+							"value": "628b866e86bc72e068673dfd"
 						},
 						{
 							"key": "page",
