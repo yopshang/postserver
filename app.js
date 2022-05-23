@@ -11,10 +11,17 @@ const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const imgRouter = require('./routes/img');
 
+const dotenv = require('dotenv');
+dotenv.config({path:"./config.env"});
+const dburl = process.env.DBURL;
+const db_varified = dburl.replace(
+    '<password>', process.env.DBPASSWORD
+    )
 //db
 const mongoose = require('mongoose');
 try{
-  mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
+  // mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
+  mongoose.connect(db_varified).then(()=>{
     console.log('資料庫連接成功');
   })
 }catch(err){
