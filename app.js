@@ -20,8 +20,8 @@ const db_varified = dburl.replace(
 //db
 const mongoose = require('mongoose');
 try{
-  // mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
-  mongoose.connect(db_varified).then(()=>{
+  mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
+  // mongoose.connect(db_varified).then(()=>{
     console.log('資料庫連接成功');
   })
 }catch(err){
@@ -55,8 +55,11 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // res.locals.message = err.message;
+  // res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.status(500).json({
+    "err": err.message
+  })
 
   // render the error page
   res.status(err.status || 500);
