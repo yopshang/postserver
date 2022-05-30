@@ -18,13 +18,19 @@ router.get('/', function(req, res, next){
     }
 })
 router.post('/', function(req, res, next){
-    const id = req.query.id,
-          img = req.query.img,
-          content = req.query.content,
-          post = {
-            id, img, content
-          }
-    postController.postpost(req, res, post);
+    if(req.query.id == undefined || req.query.id == ''){
+        return appError(400, '找不到此id', next);
+    } else if(req.query.content == undefined || req.query.content == ''){
+        return appError(400, '你不能發布一則空白貼文', next);
+    } else {
+        const id = req.query.id,
+              img = req.query.img || '',
+              content = req.query.content,
+              post = {
+                id, img, content
+              }
+        postController.postpost(req, res, post);
+    }
 })
 router.patch('/', function(req, res, next){
     postController.edit_post(req, res, req.query);
