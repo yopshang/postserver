@@ -40,7 +40,11 @@ router.patch('/', function(req, res, next){
     }
 })
 router.delete('/', function(req, res, next){
-    postController.delete_post(req, res, req.query);
+    if(req.query.id == undefined || req.query.id == ''){
+        return appError(400, '找不到此id', next);
+    } else {
+        postController.delete_post(req, res, req.query);
+    }
 })
 
 module.exports = router;
