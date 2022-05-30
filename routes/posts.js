@@ -33,7 +33,11 @@ router.post('/', function(req, res, next){
     }
 })
 router.patch('/', function(req, res, next){
-    postController.edit_post(req, res, req.query);
+    if(req.query.id == undefined || req.query.id == ''){
+        return appError(400, '請輸入id', next)
+    } else {
+        postController.edit_post(req, res, req.query);
+    }
 })
 router.delete('/', function(req, res, next){
     postController.delete_post(req, res, req.query);
