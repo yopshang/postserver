@@ -4,10 +4,18 @@ const router = express.Router();
 const get_all_post = require('../controllers/get_all_post');
 const postController = require('../controllers/postpost');
 
+const appError = require('../error/appError');
+
 router.get('/', function(req, res, next){
-    const page = req.query.page;
-    const id = req.query.id;
-    get_all_post(req, res, page, id);
+    if(req.query.page == undefined || req.query == 0){
+        return appError(400, '找不到該頁資料', next);
+    } else if (req.query.id == undefined || req.query.id == ''){
+        return appError(400, '找不到此id', next);
+    } else{
+        const page = req.query.page;
+        const id = req.query.id;
+        get_all_post(req, res, page, id);
+    }
 })
 router.post('/', function(req, res, next){
     const id = req.query.id,
