@@ -24,8 +24,8 @@ const appError = require('./error/appError')
 //db
 const mongoose = require('mongoose');
 try{
-  mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
-  // mongoose.connect(db_varified).then(()=>{
+  // mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
+  mongoose.connect(db_varified).then(()=>{
     console.log('資料庫連接成功');
   })
 }catch(err){
