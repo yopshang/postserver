@@ -17,6 +17,10 @@ const dburl = process.env.DBURL;
 const db_varified = dburl.replace(
     '<password>', process.env.DBPASSWORD
     )
+
+// error
+const appError = require('./error/appError')
+
 //db
 const mongoose = require('mongoose');
 try{
@@ -48,9 +52,9 @@ app.use('/posts', postsRouter);
 app.use('/imgs', imgRouter);
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+app.use(function(req, res, next) {
+  next(appError(404, '找不到該頁面，請重新搜尋', next));
+});
 
 
 // error handler
