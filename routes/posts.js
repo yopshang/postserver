@@ -14,7 +14,7 @@ router.get('/', checkId, checkPage, function(req, res, next){
     const id = req.query.id;
     get_all_post(req, res, page, id);
 })
-router.post('/',checkId, checkContent, function(req, res, next){
+router.post('/', checkId, checkContent, function(req, res, next){
     const id = req.query.id,
             img = req.query.img || '',
             content = req.query.content,
@@ -23,19 +23,11 @@ router.post('/',checkId, checkContent, function(req, res, next){
             }
     postController.postpost(req, res, post);
 })
-router.patch('/', function(req, res, next){
-    if(req.query.id == undefined || req.query.id == ''){
-        return appError(400, '請輸入id', next)
-    } else {
-        postController.edit_post(req, res, req.query);
-    }
+router.patch('/', checkId, function(req, res, next){
+    postController.edit_post(req, res, req.query);
 })
-router.delete('/', function(req, res, next){
-    if(req.query.id == undefined || req.query.id == ''){
-        return appError(400, '找不到此id', next);
-    } else {
-        postController.delete_post(req, res, req.query);
-    }
+router.delete('/', checkId, function(req, res, next){
+    postController.delete_post(req, res, req.query);
 })
 
 module.exports = router;
