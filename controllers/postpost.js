@@ -82,8 +82,8 @@ const postController = {
             const myposts =  await postModel.findById(body.id);
             var comments_new = myposts.comments;
             comments_new.push(JSON.parse(body.comments));
-            console.log('comments_new', comments_new);
-            result.comments = body.comments_new;
+            // console.log('comments_new', comments_new);
+            result.comments = comments_new;
         }
         if(body.tags){
             const myposts =  await postModel.findById(body.id);
