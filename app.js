@@ -23,6 +23,7 @@ const appError = require('./error/appError')
 
 //db
 const mongoose = require('mongoose');
+const res = require('express/lib/response');
 try{
   // mongoose.connect('mongodb://localhost:27017/meta').then(()=>{
   mongoose.connect(db_varified).then(()=>{
@@ -69,6 +70,18 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+// 未捕捉到的 catch 
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('未捕捉到的 rejection：', promise, '原因：', reason);
+  // 記錄於 log 上
+});
+
+process.on('uncaughtException', err => {
+  // 記錄錯誤下來，等到服務都處理完後，停掉該 process
+	console.error('Uncaughted Exception！')
+	console.error(err);
+	process.exit(1);
 });
 
 module.exports = app;

@@ -5,7 +5,6 @@ const userModel = require('../models/user');
 const postController = {
     // 新增貼文
     async postpost(req, res, post){
-        try{
             if(post.id){
                 // 更新貼文collection
                 await postModel.create(
@@ -44,17 +43,10 @@ const postController = {
                     message: '請輸入id'
                 })
             }
-        }catch(err){
-            res.status(200).json({
-                status: 'fail',
-                message: '查無此id'
-            })
-        }
     },
     // 編輯貼文
     async edit_post(req, res, query){
         const that = this;
-        try{
             const returnSet = await that.returnSet(query);
             // console.log('returnset', returnSet);
 
@@ -71,12 +63,6 @@ const postController = {
                 message: '成功',
                 query: query
             })
-        }catch(err){
-            res.status(200).json({
-                status: 'fail',
-                message: '查無此id'
-            })
-        }
     },
     async returnSet(body){
         let result={}
@@ -111,19 +97,13 @@ const postController = {
     },
     async delete_post(req, res, query){
         const that = this;
-        try{
+
             await postModel.findByIdAndDelete(query.id)
             res.status(200).json({
                 status: 'success',
                 message: '成功',
                 id: query.id
             })
-        }catch(err){
-            res.status(200).json({
-                status: 'fail',
-                message: '查無此id'
-            })
-        }
     },
 
 }
