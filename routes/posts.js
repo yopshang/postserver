@@ -4,7 +4,6 @@ const router = express.Router();
 const get_all_post = require('../controllers/get_all_post');
 const postController = require('../controllers/postpost');
 
-const appError = require('../error/appError');
 const checkId = require('../middleware/checkId');
 const checkPage = require('../middleware/checkPage');
 const checkContent = require('../middleware/checkContent');

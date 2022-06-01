@@ -82,7 +82,6 @@ const postController = {
             const myposts =  await postModel.findById(body.id);
             var comments_new = myposts.comments;
             comments_new.push(JSON.parse(body.comments));
-            // console.log('comments_new', comments_new);
             result.comments = comments_new;
         }
         if(body.tags){
@@ -92,7 +91,6 @@ const postController = {
 
             result.tags = body.tags_new;
         }
-        // console.log('result:', result);
         return result;
     },
     async delete_post(req, res, query){
