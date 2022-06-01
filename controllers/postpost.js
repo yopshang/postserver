@@ -78,12 +78,12 @@ const postController = {
         if(body.likes){
             result.likes = body.likes;
         }
-        if(body.comments){
-            const myposts =  await postModel.findById(body.id);
-            var comments_new = myposts.comments;
-            comments_new.push(JSON.parse(body.comments));
-            result.comments = comments_new;
-        }
+        // if(body.comments){
+        //     const myposts =  await postModel.findById(body.id);
+        //     var comments_new = myposts.comments;
+        //     comments_new.push(JSON.parse(body.comments));
+        //     result.comments = comments_new;
+        // }
         if(body.tags){
             const myposts =  await postModel.findById(body.id);
             const tags_new  = myposts.tags;
