@@ -96,8 +96,17 @@ const postController = {
                     id: query.id
                 })
         }
+    },
+    get_all_post:async function (req, res, page, id){
+        const all_post = await postModel.find({
+            "postby": id
+        }).sort({"createdAt": -1}).limit(page*10);
+        console.log('取得所有貼文:',all_post);
+        res.status(200).json({
+            status: 'success',
+            all_post: all_post
+        })
     }
-
 }
 
 
