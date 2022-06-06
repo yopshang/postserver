@@ -6,6 +6,7 @@ const postController = {
     add_post: {
         // 新增貼文
         postpost:async function (req, res, post){
+            console.log('ididid',post.id);
                 if(post.id){
                     // 更新貼文collection
                     await postModel.create(

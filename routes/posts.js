@@ -13,12 +13,13 @@ router.get('/', checkId, checkPage, function(req, res, next){
     postController.get_all_post(req, res, page, id);
 })
 router.post('/', checkId, checkContent, function(req, res, next){
-    const id = req.query.id,
-            img = req.query.img || '',
-            content = req.query.content,
-            post = {
-            id, img, content
-            }
+    const id = req.body.id,
+    img = req.body.img || '',
+    content = req.body.content,
+    post = {
+        id, img, content
+    }
+    console.log('這是我的body', post);
     postController.add_post.postpost(req, res, post);
 })
 router.patch('/', checkId, function(req, res, next){
