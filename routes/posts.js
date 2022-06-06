@@ -20,13 +20,13 @@ router.post('/', checkId, checkContent, function(req, res, next){
             post = {
             id, img, content
             }
-    postController.postpost(req, res, post);
+    postController.add_post.postpost(req, res, post);
 })
 router.patch('/', checkId, function(req, res, next){
-    postController.edit_post(req, res, req.query);
+    postController.add_post.edit_post(req, res, req.query);
 })
 router.delete('/', checkId, function(req, res, next){
-    postController.delete_post(req, res, req.query);
+    postController.add_post.delete_post(req, res, req.query);
 })
 
 module.exports = router;
