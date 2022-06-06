@@ -10,7 +10,7 @@ const checkContent = require('../middleware/checkContent');
 router.get('/', checkId, checkPage, function(req, res, next){
     const page = req.query.page;
     const id = req.query.id;
-    postController.get_all_post(req, res, page, id);
+    postController.get_all_post(req, res, page, id, next);
 })
 router.post('/', checkId, checkContent, function(req, res, next){
     const id = req.body.id,

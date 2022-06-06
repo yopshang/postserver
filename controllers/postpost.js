@@ -1,12 +1,14 @@
 // models
 const postModel = require('../models/post');
 const userModel = require('../models/user');
+// error
+const appError = require('../error/appError')
 
 const postController = {
     add_post: {
         // 新增貼文
         postpost:async function (req, res, post){
-            console.log('ididid',post.id);
+            // console.log('ididid',post.id);
                 if(post.id){
                     // 更新貼文collection
                     await postModel.create(
@@ -50,8 +52,6 @@ const postController = {
         edit_post:async function(req, res, query){
             const that = this;
                 const returnSet = await that.returnSet(query);
-                // console.log('returnset', returnSet);
-    
                 await postModel.updateOne(
                     {
                         _id: query.id
@@ -98,11 +98,14 @@ const postController = {
                 })
         }
     },
-    get_all_post:async function (req, res, page, id){
+    get_all_post:async function (req, res, page, id, next){
         const all_post = await postModel.find({
             "postby": id
         }).sort({"createdAt": -1}).limit(page*10);
-        console.log('取得所有貼文:',all_post);
+        if(all_post == ""){
+            next(appError(404, '查無此id', next));
+        }
+        // console.log('取得所有貼文:',all_post);
         res.status(200).json({
             status: 'success',
             all_post: all_post
