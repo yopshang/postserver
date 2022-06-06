@@ -23,7 +23,7 @@ router.post('/', checkId, checkContent, function(req, res, next){
     postController.add_post.postpost(req, res, post);
 })
 router.patch('/', checkId, function(req, res, next){
-    postController.add_post.edit_post(req, res, req.query);
+    postController.add_post.edit_post(req, res, req.body);
 })
 router.delete('/', checkId, function(req, res, next){
     postController.add_post.delete_post(req, res, req.query);
