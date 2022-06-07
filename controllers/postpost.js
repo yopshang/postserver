@@ -49,9 +49,14 @@ const postController = {
                 }
         },
         // 編輯貼文
-        edit_post:async function(req, res, query){
+        edit_post:async function(req, res, query, next){
             const that = this;
+            const id = Number(query.id)
                 const returnSet = await that.returnSet(query);
+                const ifPostExist = await postModel.findById(id);
+                if(ifPostExist == "" ){
+                    next(appError(404,'此使用者id不存在', next));
+                }
                 await postModel.updateOne(
                     {
                         _id: query.id
