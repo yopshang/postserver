@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "cd3d85cd-d522-4155-850a-1c2704383901",
-		"name": "meta_heroku",
+		"_postman_id": "df3501d5-5fe9-4673-9920-4b6c05d54273",
+		"name": "meta heroku w5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12615871"
 	},
@@ -19,22 +19,20 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/users?id=628886ecfbbc781e7e308909",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/users?id=628b866e86bc72e068673dfd",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"users"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "628886ecfbbc781e7e308909"
+							"value": "628b866e86bc72e068673dfd"
 						}
 					]
 				}
@@ -54,15 +52,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts?id=628b866e86bc72e068673dfd&page=1",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/posts?id=628b866e86bc72e068673dfd&page=1",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"posts"
 					],
@@ -87,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"raw": "{\n    \"id\": \"628b866e86bc72e068673dfd\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"content\": \"這是一則測試貼文\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -95,15 +91,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts?id=628886ecfbbc781e7e308909&img=test&content=天氣不好，哭哭",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/posts?id=628886ecfbbc781e7e308909&img=test&content=天氣不好，哭哭",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"posts"
 					],
@@ -140,15 +134,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/imgs?id=628886ecfbbc781e7e308909&img=test",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/imgs?id=628886ecfbbc781e7e308909&img=test",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"imgs"
 					],
@@ -167,9 +159,9 @@
 			"response": []
 		},
 		{
-			"name": "edit post",
+			"name": "add comment",
 			"request": {
-				"method": "PATCH",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -181,15 +173,52 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts?img=google&content=這是一個測試修改&id=628a0463fbbc781e7e30891c&comments={\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/comments?id=628886ecfbbc781e7e308909&content=te",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "628886ecfbbc781e7e308909"
+						},
+						{
+							"key": "content",
+							"value": "te"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"629609ebad5cac3d2a3c5267\",\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://homeworkw5.herokuapp.com/posts?img=google&content=這是一個測試修改&id=628a0463fbbc781e7e30891c&comments={\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
+					"protocol": "https",
+					"host": [
+						"homeworkw5",
+						"herokuapp",
+						"com"
+					],
 					"path": [
 						"posts"
 					],
@@ -230,15 +259,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts?id=628a0463fbbc781e7e30891c",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/posts?id=628a0463fbbc781e7e30891c",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"posts"
 					],
