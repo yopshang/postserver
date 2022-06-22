@@ -16,18 +16,15 @@ const userController = {
             });
     },
     add_user:async function (req, res){
-        // console.log('密碼加密', req.body);
-        var hash;
-        const that = this;
-        bcrypt.hash('test', 12).then(res => {
-            console.log('密碼加密', res); // 這樣寫就能夠接到加密後的值了
-            that.hash = res;
-        });
-        // bcrypt.hash(newUser.password, salt , (err, hash) => { 
-        //     console.log('hash',  hash);
-        // })
+        const password =  await bcrypt.hash(req.body.password, 12);
+        console.log('密碼加密', password);
 
-        // console.log('加密過的密碼', password);
+        const user = await userModel.create({
+            name: req.body.name,
+            email: req.body.email,
+            password
+        })
+        console.log('新增成功');
         res.status(200).json({
             status: 'success',
         });

@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: [true, '請輸入E-mail']
         },
-        pw: {
+        password: {
             type: String,
             required: [true, '請輸入密碼']
         }
