@@ -11,5 +11,11 @@ router.get('/',checkId , handleErrorAsync(async function(req, res, next) {
     userController.get_my_user(req, res, id);
 })
 );
+router.post('/addUser', handleErrorAsync(async function(req, res, next) {
+    // const id = req.query.id;
+    // console.log('user id:', id);
+    userController.add_user(req, res);
+})
+);
 
 module.exports = router;
