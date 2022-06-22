@@ -1,10 +1,6 @@
 // plugins
 const bcrypt = require('bcrypt');
-const validator = require('validator');
 // const jwt = require('jsonwebtoken')
-
-// error
-const appError = require('../error/appError');
 
 // models
 const userModel = require('../models/user');
@@ -18,18 +14,14 @@ const userController = {
                 data: users
             });
     },
-    add_user:async function (req, res, next){
-        if(!validator.isEmail(req.body.email)){
-            appError('200', 'email格式錯誤', next)
-        }
-
+    add_user:async function (req, res){
         const password =  await bcrypt.hash(req.body.password, 12);
         console.log('密碼加密', password);
 
         const user = await userModel.create({
             name: req.body.name,
             email: req.body.email,
-            password
+            password: password
         })
         console.log('新增成功');
         res.status(200).json({
