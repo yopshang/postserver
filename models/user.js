@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema(
         email: {
             type: String,
             required: [true, '請輸入E-mail']
+        },
+        pw: {
+            type: String,
+            required: [true, '請輸入密碼']
         }
     },
     {
