@@ -14,7 +14,7 @@ router.get('/',checkId , handleErrorAsync(async function(req, res, next) {
 router.post('/addUser', handleErrorAsync(async function(req, res, next) {
     // const id = req.query.id;
     // console.log('user id:', id);
-    userController.add_user(req, res);
+    userController.add_user(req, res, next);
 })
 );
 

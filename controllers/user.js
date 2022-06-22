@@ -1,7 +1,10 @@
 // plugins
 const bcrypt = require('bcrypt');
-// const validated = require('validated');
+const validator = require('validator');
 // const jwt = require('jsonwebtoken')
+
+// error
+const appError = require('../error/appError');
 
 // models
 const userModel = require('../models/user');
@@ -15,7 +18,11 @@ const userController = {
                 data: users
             });
     },
-    add_user:async function (req, res){
+    add_user:async function (req, res, next){
+        if(!validator.isEmail(req.body.email)){
+            appError('200', 'email格式錯誤', next)
+        }
+
         const password =  await bcrypt.hash(req.body.password, 12);
         console.log('密碼加密', password);
 
