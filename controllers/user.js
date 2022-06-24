@@ -4,11 +4,11 @@ const jwt = require('jsonwebtoken')
 
 // models
 const userModel = require('../models/user');
-const { use } = require('../routes');
+// const { use } = require('../routes');
 
 const userController = {
-    get_my_user:async function (req, res, id){
-            const users = await userModel.findById(id);
+    login:async function (req, res){
+            const users = await userModel.find({email:req.body.email});
             console.log('取得user',users);
             res.status(200).json({
                 status: 'success',

@@ -3,14 +3,14 @@ var router = express.Router();
 
 const userController = require('../controllers/user');
 const handleErrorAsync = require('../error/handErrorAsync');
-const checkId = require('../middleware/checkId');
+const chdckIfToken = require('../middleware/checkId');
 const checkEmail = require('../middleware/checkEmail');
+const loginVarify = require('../middleware/loginVarify');
 
-
-router.get('/',checkId , handleErrorAsync(async function(req, res, next) {
-    const id = req.query.id;
-    console.log('user id:', id);
-    userController.get_my_user(req, res, id);
+router.post('/',chdckIfToken ,loginVarify, handleErrorAsync(async function(req, res, next) {
+    // const id = req.query.id;
+    // console.log('user id:', id);
+    userController.login(req, res);
 })
 );
 router.post('/addUser',checkEmail, handleErrorAsync(async function(req, res, next) {
