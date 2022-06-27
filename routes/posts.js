@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const postController = require('../controllers/postpost');
+const postController = require('../controllers/post');
 
 const checkId = require('../middleware/checkId');
 const checkPage = require('../middleware/checkPage');
@@ -20,13 +20,13 @@ router.post('/', checkId, checkContent, function(req, res, next){
         id, img, content
     }
     console.log('這是我的body', post);
-    postController.add_post.postpost(req, res, post);
+    postController.add_post(req, res, post);
 })
 router.patch('/', checkId, function(req, res, next){
-    postController.add_post.edit_post(req, res, req.body, next);
+    postController.edit_post(req, res, req.body, next);
 })
 router.delete('/', checkId, function(req, res, next){
-    postController.add_post.delete_post(req, res, req.query);
+    postController.delete_post(req, res, req.query);
 })
 
 module.exports = router;
