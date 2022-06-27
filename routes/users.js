@@ -7,9 +7,7 @@ const chdckIfToken = require('../middleware/checkId');
 const checkEmail = require('../middleware/checkEmail');
 const loginVarify = require('../middleware/loginVarify');
 
-router.post('/',chdckIfToken ,loginVarify, handleErrorAsync(async function(req, res, next) {
-    // const id = req.query.id;
-    // console.log('user id:', id);
+router.post('/login',chdckIfToken ,loginVarify, handleErrorAsync(async function(req, res, next) {
     userController.login(req, res);
 })
 );
