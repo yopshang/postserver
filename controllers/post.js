@@ -6,46 +6,50 @@ const appError = require('../error/appError')
 
 const postController = {
     // 新增貼文
-    add_post:async function (req, res, post){
-        // console.log('ididid',post.id);
-            if(post.id){
-                // 更新貼文collection
-                await postModel.create(
-                        {
-                            postby: post.id,
-                            img: post.img || '',
-                            content: post.content
-                        }
-                    );
-    
-                // 更新user 發布的貼文
-                const myposts =  await postModel.find({postby: post.id});
-                var myposts_updated = [];
-                myposts.forEach(item=>{
-                    myposts_updated.push(item._id)
-                })
-                await userModel.updateOne(
+    add_post:async function (req, res){
+        const post = {
+            id: req.body.id,
+            img: req.body.img || '',
+            content: req.body.content
+        }
+        console.log('post', post);
+        if(post.id){
+            // 更新貼文collection
+            await postModel.create(
                     {
-                        _id: post.id
-                    },
-                    {
-                        $set:{
-                            myposts: myposts
-                        }
+                        postby: post.id,
+                        img: post.img || '',
+                        content: post.content
                     }
-                    )
-                // 回傳結果
-                res.status(200).json({
-                    status: 'success',
-                    message: '發布成功',
-                    data: post
-                });
-            }else{
-                res.status(200).json({
-                    status: 'success',
-                    message: '請輸入id'
-                })
-            }
+                );
+            // 更新user 發布的貼文
+            const myposts =  await postModel.find({postby: post.id});
+            var myposts_updated = [];
+            myposts.forEach(item=>{
+                myposts_updated.push(item._id)
+            })
+            await userModel.updateOne(
+                {
+                    _id: post.id
+                },
+                {
+                    $set:{
+                        myposts: myposts
+                    }
+                }
+                )
+            // 回傳結果
+            res.status(200).json({
+                status: 'success',
+                message: '發布成功',
+                data: post
+            });
+        }else{
+            res.status(200).json({
+                status: 'success',
+                message: '請輸入id'
+            })
+        }
     },
     // 編輯貼文
     edit_post:async function(req, res, query, next){
