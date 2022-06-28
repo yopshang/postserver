@@ -12,7 +12,6 @@ const postController = {
             img: req.body.img || '',
             content: req.body.content
         }
-        console.log('post', post);
         if(post.id){
             // 更新貼文collection
             await postModel.create(
@@ -105,14 +104,16 @@ const postController = {
                 id: query.id
             })
     },
-    get_all_post:async function (req, res, page, id, next){
+    get_all_post:async function (req, res, next){
+        console.log('req'. req.body.page, req.body.id);
+        const page = req.body.page;
+        const id = req.body.id;
         const all_post = await postModel.find({
             "postby": id
         }).sort({"createdAt": -1}).limit(page*10);
         if(all_post == ""){
             next(appError(404, '查無此id', next));
         }
-        // console.log('取得所有貼文:',all_post);
         res.status(200).json({
             status: 'success',
             all_post: all_post

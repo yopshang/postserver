@@ -6,11 +6,12 @@ const postController = require('../controllers/post');
 const checkId = require('../middleware/checkId');
 const checkPage = require('../middleware/checkPage');
 const checkContent = require('../middleware/checkContent');
+const handleErrorAsync = require('../error/handErrorAsync')
 
 router.get('/', checkId, checkPage, function(req, res, next){
-    const page = req.query.page;
-    const id = req.query.id;
-    postController.get_all_post(req, res, page, id, next);
+    // const page = req.query.page;
+    // const id = req.query.id;
+    postController.get_all_post(req, res, next);
 })
 router.post('/', checkId, checkContent, function(req, res, next){
     // const id = req.body.id,

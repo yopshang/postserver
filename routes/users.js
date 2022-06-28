@@ -8,7 +8,6 @@ const userController = require('../controllers/user');
 
 router.get('/',checkId , handleErrorAsync(async function(req, res, next) {
     const id = req.query.id;
-    console.log('user id:', id);
     get_my_user(req, res, id);
 })
 );

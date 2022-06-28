@@ -1,5 +1,7 @@
 // models
 const userModel = require('../models/user');
+// error
+const handleErrorAsync = require('../error/handErrorAsync');
 
 const userController = {
     // login:async function (req, res){
@@ -10,9 +12,8 @@ const userController = {
     //             token: token
     //         });
     // },
-    add_user:async function (req, res){
+    add_user: handleErrorAsync(function(req, res){
         // const password =  await bcrypt.hash(req.body.password, 12);
-
         const user = await userModel.create({
             name: req.body.name,
             email: req.body.email,
@@ -24,8 +25,7 @@ const userController = {
             }
         });
         // generateJWT(user, 200, res);
-    }
-
+    })
 }
 
 module.exports = userController;
