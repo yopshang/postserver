@@ -10,9 +10,8 @@ router.get('/',checkId , async function(req, res, next) {
     const id = req.query.id;
     get_my_user(req, res, id);
 });
-router.post('/add_user', async (req, res, next)=>{
-    // console.log('good');
-    userController.add_user(req, res, next)
+router.post('/add_user', (req, res, next)=>{
+    handleErrorAsync(userController.add_user(req, res, next))
 });
 
 module.exports = router;
