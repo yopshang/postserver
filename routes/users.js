@@ -10,9 +10,9 @@ const userController = require('../controllers/user');
 const checkId = require('../middleware/checkId');
 const checkEmail = require('../middleware/checkEmail');
 
+// route
 router.get('/',checkId , async function(req, res, next) {
-    const id = req.query.id;
-    get_my_user(req, res, id);
+    get_my_user(req, res);
 });
 router.post('/add_user', checkEmail, (req, res, next)=>{
     handleErrorAsync(userController.add_user(req, res, next))
