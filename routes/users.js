@@ -6,13 +6,13 @@ const handleErrorAsync = require('../error/handErrorAsync');
 const checkId = require('../middleware/checkId');
 const userController = require('../controllers/user');
 
-router.get('/',checkId , handleErrorAsync(async function(req, res, next) {
+router.get('/',checkId , async function(req, res, next) {
     const id = req.query.id;
     get_my_user(req, res, id);
-})
-);
-router.post('/add_user', handleErrorAsync(async function(req, res, next){
-    userController.add_user(req, res);
-}));
+});
+router.post('/add_user', async (req, res, next)=>{
+    // console.log('good');
+    userController.add_user(req, res, next)
+});
 
 module.exports = router;
