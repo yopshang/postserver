@@ -11,11 +11,11 @@ const checkId = require('../middleware/checkId');
 const checkEmail = require('../middleware/checkEmail');
 
 // route
-router.get('/',checkId , async function(req, res, next) {
-    get_my_user(req, res);
+router.get('/',checkId , (req, res, next)=>{
+    handleErrorAsync(get_my_user(req, res));
 });
 router.post('/add_user', checkEmail, (req, res, next)=>{
-    handleErrorAsync(userController.add_user(req, res, next))
+    handleErrorAsync(userController.add_user(req, res, next));
 });
 
 module.exports = router;
