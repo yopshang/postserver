@@ -12,13 +12,7 @@ router.get('/', checkId, checkPage, function(req, res, next){
     handleErrorAsync(postController.get_all_post(req, res, next))
 })
 router.post('/', checkId, checkContent, function(req, res, next){
-    // const id = req.body.id,
-    // img = req.body.img || '',
-    // content = req.body.content,
-    // post = {
-    //     id, img, content
-    // }
-    postController.add_post(req, res, post);
+    postController.add_post(req, res);
 })
 router.patch('/', checkId, function(req, res, next){
     postController.edit_post(req, res, req.body, next);

@@ -105,7 +105,6 @@ const postController = {
             })
     },
     get_all_post:async function (req, res, next){
-        console.log('傳進來的body', req.body.page, req.body.id);
         const page = req.body.page;
         const id = req.body.id;
         const all_post = await postModel.find({
