@@ -73,12 +73,12 @@ const postController = {
                 body: body
             })
     },
-    delete_post:async function(req, res, query){
-            await postModel.findByIdAndDelete(query.id)
+    delete_post:async function(req, res, next){
+            await postModel.findByIdAndDelete(req.body.id)
             res.status(200).json({
                 status: 'success',
                 message: '成功',
-                id: query.id
+                id: req.body.id
             })
     },
     get_all_post:async function (req, res, next){

@@ -18,7 +18,7 @@ router.patch('/', checkId, function(req, res, next){
     handleErrorAsync(postController.edit_post(req, res, next))
 })
 router.delete('/', checkId, function(req, res, next){
-    postController.delete_post(req, res, req.query);
+    handleErrorAsync(postController.delete_post(req, res, next))
 })
 
 module.exports = router;
