@@ -105,13 +105,13 @@ const postController = {
             })
     },
     get_all_post:async function (req, res, next){
-        console.log('req'. req.body.page, req.body.id);
+        console.log('傳進來的body', req.body.page, req.body.id);
         const page = req.body.page;
         const id = req.body.id;
         const all_post = await postModel.find({
             "postby": id
         }).sort({"createdAt": -1}).limit(page*10);
-        if(all_post == ""){
+        if(!all_post || all_post == ""){
             next(appError(404, '查無此id', next));
         }
         res.status(200).json({

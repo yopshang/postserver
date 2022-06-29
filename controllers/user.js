@@ -1,7 +1,5 @@
 // models
 const userModel = require('../models/user');
-// error
-const handleErrorAsync = require('../error/handErrorAsync');
 
 const userController = {
     // login:async function (req, res){

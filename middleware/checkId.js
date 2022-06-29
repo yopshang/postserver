@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const appError = require('../error/appError');
 
 const checkId = function(req, res, next){
-    console.log('id', req.body)
     if(req.body.id == undefined || req.body.id.length == 0){
         return appError(400, "你沒有填寫id", next);
     } 
