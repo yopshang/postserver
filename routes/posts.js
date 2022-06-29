@@ -12,10 +12,10 @@ router.get('/', checkId, checkPage, function(req, res, next){
     handleErrorAsync(postController.get_all_post(req, res, next))
 })
 router.post('/', checkId, checkContent, function(req, res, next){
-    postController.add_post(req, res);
+    handleErrorAsync(postController.add_post(req, res));
 })
 router.patch('/', checkId, function(req, res, next){
-    postController.edit_post(req, res, req.body, next);
+    handleErrorAsync(postController.edit_post(req, res, next))
 })
 router.delete('/', checkId, function(req, res, next){
     postController.delete_post(req, res, req.query);
