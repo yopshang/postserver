@@ -52,10 +52,9 @@ const postController = {
     },
     // 編輯貼文
     edit_post:async function(req, res, next){
-        const that = this;
-        const body = req.body
-        const id = Number(body.id)
-            const returnSet = await that.returnSet(body);
+        const that = this,
+              body = req.body,
+              id = body.id;
             const ifPostExist = await postModel.findById(id);
             if(ifPostExist == "" ){
                 next(appError(404,'此使用者id不存在', next));
@@ -65,7 +64,7 @@ const postController = {
                     _id: body.id
                 },
                 {
-                    $set: returnSet
+                    $set: body
                 }
             )
             res.status(200).json({
@@ -73,29 +72,6 @@ const postController = {
                 message: '成功',
                 body: body
             })
-    },
-    returnSet: async function(body){
-        let result={}
-        if(body.postby){
-            result.postby = body.postby;
-        }
-        if(body.img){
-            result.img = body.img;
-        }
-        if(body.content){
-            result.content = body.content;
-        }
-        if(body.likes){
-            result.likes = body.likes;
-        }
-        if(body.tags){
-            const myposts =  await postModel.findById(body.id);
-            const tags_new  = myposts.tags;
-            tags_new.push(JSON.parse(body.tags));
-
-            result.tags = body.tags_new;
-        }
-        return result;
     },
     delete_post:async function(req, res, query){
             await postModel.findByIdAndDelete(query.id)
