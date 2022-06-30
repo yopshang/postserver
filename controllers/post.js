@@ -7,7 +7,7 @@ const successHandler = require('../service/successHangler')
 
 const postController = {
     // 新增貼文
-    add_post:async function (req, res){
+    async add_post (req, res){
         const post = {
             id: req.body.id,
             img: req.body.img || '',
@@ -41,7 +41,7 @@ const postController = {
         successHandler(res, 200, '發布成功', post)
     },
     // 編輯貼文
-    edit_post:async function(req, res, next){
+    async edit_post (req, res, next){
         const that = this,
               body = req.body,
               id = body.id;
@@ -59,11 +59,11 @@ const postController = {
             )
             successHandler(res, 200, '修改貼文成功', body)
     },
-    delete_post:async function(req, res, next){
+    async delete_post(req, res, next){
             await postModel.findByIdAndDelete(req.body.id)
             successHandler(res, 200, '刪除成功', req.body.id)
     },
-    get_all_post:async function (req, res, next){
+    async get_all_post (req, res, next){
         const page = req.body.page;
         const id = req.body.id;
         const all_post = await postModel.find({
