@@ -1,5 +1,7 @@
 // models
 const userModel = require('../models/user');
+// service
+const successHandler = require('../service/successHangler')
 
 const userController = {
     // login:async function (req, res){
@@ -16,12 +18,7 @@ const userController = {
             name: req.body.name,
             email: req.body.email,
         })
-        res.status(200).json({
-            status: 'success',
-            user: {
-                name: req.body.name
-            }
-        });
+        successHandler(res, 200, '註冊成功', req.body.name)
         // generateJWT(user, 200, res);
     }
 }
