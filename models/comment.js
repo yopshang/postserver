@@ -9,7 +9,7 @@ const commentSchema = new mongoose.Schema(
         },
         content:{
             type: String,
-            required: [true, '請上傳圖片']
+            required: [true, '請上傳內容']
         }
     },
     {

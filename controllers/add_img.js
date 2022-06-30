@@ -3,7 +3,7 @@ const imgModel = require('../models/img');
 async function add_img(req, res){
         await imgModel.create(
             {
-                img: req.query.img,
+                img: req.body.img,
             }
         );
 
