@@ -1,4 +1,4 @@
-const appError = require('../error/appError');
+const appError = require('../service/appError');
 const validator = require('validator');
 const userModal = require('../models/user')
 

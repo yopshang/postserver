@@ -2,7 +2,7 @@
 const postModel = require('../models/post');
 const userModel = require('../models/user');
 // error
-const appError = require('../error/appError')
+const appError = require('../service/appError')
 
 const postController = {
     // 新增貼文

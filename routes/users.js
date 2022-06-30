@@ -3,7 +3,7 @@ var router = express.Router();
 
 // controller
 const get_my_user = require('../controllers/get_my_user');
-const handleErrorAsync = require('../error/handErrorAsync');
+const handleErrorAsync = require('../service/handErrorAsync');
 const userController = require('../controllers/user');
 
 // middeleware

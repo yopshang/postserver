@@ -1,4 +1,4 @@
-const appError = require('../error/appError');
+const appError = require('../service/appError');
 
 const checkContent = function(req, res, next){
     if(req.query.content == undefined || req.query.content == ''){

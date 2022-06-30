@@ -1,4 +1,4 @@
-const appError = require('../error/appError');
+const appError = require('../service/appError');
 
 const checkImg = function(req, res, next){
     if(req.body.img== undefined || req.body.img.length == 0){

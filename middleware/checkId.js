@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const appError = require('../error/appError');
+const appError = require('../service/appError');
 
 const checkId = function(req, res, next){
     if(req.body.id == undefined || req.body.id.length == 0){

@@ -6,7 +6,7 @@ const postController = require('../controllers/post');
 const checkId = require('../middleware/checkId');
 const checkPage = require('../middleware/checkPage');
 const checkContent = require('../middleware/checkContent');
-const handleErrorAsync = require('../error/handErrorAsync')
+const handleErrorAsync = require('../service/handErrorAsync')
 
 router.get('/', checkId, checkPage, function(req, res, next){
     handleErrorAsync(postController.get_all_post(req, res, next))
