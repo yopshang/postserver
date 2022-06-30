@@ -66,7 +66,7 @@ app.use(function(err, req, res, next) {
     if (err.isOperational){
       res.status(400).json({
         status: 'error',
-        massage: err,
+        massage: err.message,
         stack: err.stack
       })
     } else {
@@ -80,7 +80,6 @@ app.use(function(err, req, res, next) {
       res.status(400).json({
         status: 'error',
         massage: err,
-        stack: err.stack
       })
     } else {
       res.status(400).json({
