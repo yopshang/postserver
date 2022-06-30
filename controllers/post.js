@@ -72,10 +72,7 @@ const postController = {
         if(!all_post || all_post == ""){
             next(appError(404, '查無此id', next));
         }
-        res.status(200).json({
-            status: 'success',
-            all_post: all_post
-        })
+        successHandler(res, 200, '取得貼文成功', all_post)
     }
 }
 
