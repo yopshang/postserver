@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
+const postRouter = require('./routes/post');
 const imgRouter = require('./routes/img');
 const commentRouter = require('./routes/comments');
 
@@ -50,6 +51,7 @@ app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/post', postRouter);
 app.use('/posts', postsRouter);
 app.use('/imgs', imgRouter);
 app.use('/comments', commentRouter);
