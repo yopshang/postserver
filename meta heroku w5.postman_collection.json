@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "7008ceea-c4e4-4ac5-bc00-6fdb228bc93f",
-		"name": "meta heroku w5 local",
+		"_postman_id": "7e3694d2-f18d-4300-952c-12f510b0e7fe",
+		"name": "meta heroku w5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12615871"
 	},
@@ -24,15 +24,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/users",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/users",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"users"
 					]
@@ -55,15 +53,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/users/add_user",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/users/add_user",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"users",
 						"add_user"
@@ -97,15 +93,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/posts",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"posts"
 					]
@@ -128,15 +122,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/post?id=628886ecfbbc781e7e308909&img=test&content=天氣不好，哭哭",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/post?id=628886ecfbbc781e7e308909&img=test&content=天氣不好，哭哭",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"post"
 					],
@@ -173,15 +165,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/imgs",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/imgs",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"imgs"
 					]
@@ -204,26 +194,24 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/comments?id=628886ecfbbc781e7e308909&content=te",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/comments?id=629609ebad5cac3d2a3c5267&content=tesssss",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"comments"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "628886ecfbbc781e7e308909"
+							"value": "629609ebad5cac3d2a3c5267"
 						},
 						{
 							"key": "content",
-							"value": "te"
+							"value": "tesssss"
 						}
 					]
 				}
@@ -237,7 +225,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"628b82e961a7ad3bd19881b3\",\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": \"這次一個測試修正\"\n}",
+					"raw": "{\n    \"id\": \"629609ebad5cac3d2a3c5267\",\n    \"likes\": 77777\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -245,17 +233,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts?img=google&content=這是一個測試修改&id=628a0463fbbc781e7e30891c&comments={\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/post?img=google&content=這是一個測試修改&id=629609ebad5cac3d2a3c5267&comments={\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
-						"posts"
+						"post"
 					],
 					"query": [
 						{
@@ -268,7 +254,7 @@
 						},
 						{
 							"key": "id",
-							"value": "628a0463fbbc781e7e30891c"
+							"value": "629609ebad5cac3d2a3c5267"
 						},
 						{
 							"key": "comments",
@@ -286,7 +272,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\":\"628b82e961a7ad3bd19881b3\"\n}",
+					"raw": "{\n    \"id\":\"629609ebad5cac3d2a3c5267\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -294,17 +280,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3000/posts?id=628a0463fbbc781e7e30891c",
-					"protocol": "http",
+					"raw": "https://homeworkw5.herokuapp.com/post?id=629609ebad5cac3d2a3c5267",
+					"protocol": "https",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"homeworkw5",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
-						"posts"
+						"post"
 					],
 					"query": [
 						{
@@ -319,7 +303,7 @@
 						},
 						{
 							"key": "id",
-							"value": "628a0463fbbc781e7e30891c"
+							"value": "629609ebad5cac3d2a3c5267"
 						},
 						{
 							"key": "comments",
