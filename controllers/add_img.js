@@ -1,16 +1,14 @@
 const imgModel = require('../models/img');
+// service
+const successHandler = require('../service/successHangler')
 
 async function add_img(req, res){
         await imgModel.create(
             {
-                img: req.query.img,
+                img: req.body.img,
             }
         );
-
-        res.status(200).json({
-            status: 'success',
-            message: '成功',
-        })
+        successHandler(res, 200, '新增成功', req.body.img)
 }
 
 module.exports = add_img;

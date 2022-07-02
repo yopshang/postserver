@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "df3501d5-5fe9-4673-9920-4b6c05d54273",
+		"_postman_id": "7e3694d2-f18d-4300-952c-12f510b0e7fe",
 		"name": "meta heroku w5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12615871"
@@ -16,10 +16,15 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n    \"id\": \"62bb026a0bc98e1978937552\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "https://homeworkw5.herokuapp.com/users?id=628b866e86bc72e068673dfd",
+					"raw": "https://homeworkw5.herokuapp.com/users",
 					"protocol": "https",
 					"host": [
 						"homeworkw5",
@@ -28,11 +33,42 @@
 					],
 					"path": [
 						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Charlley\",\n    \"email\": \"charlley@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://homeworkw5.herokuapp.com/users/add_user",
+					"protocol": "https",
+					"host": [
+						"homeworkw5",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"add_user"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "628b866e86bc72e068673dfd"
+							"value": "628b866e86bc72e068673dfd",
+							"disabled": true
 						}
 					]
 				}
@@ -49,10 +85,15 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n    \"id\":\"628b866e86bc72e068673dfd\",\n    \"page\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "https://homeworkw5.herokuapp.com/posts?id=628b866e86bc72e068673dfd&page=1",
+					"raw": "https://homeworkw5.herokuapp.com/posts",
 					"protocol": "https",
 					"host": [
 						"homeworkw5",
@@ -61,16 +102,6 @@
 					],
 					"path": [
 						"posts"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "628b866e86bc72e068673dfd"
-						},
-						{
-							"key": "page",
-							"value": "1"
-						}
 					]
 				}
 			},
@@ -83,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"628b866e86bc72e068673dfd\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"content\": \"這是一則測試貼文\"\n}",
+					"raw": "{\n    \"id\": \"628b866e86bc72e068673dfd\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"content\": \"快七月了\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,7 +122,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://homeworkw5.herokuapp.com/posts?id=628886ecfbbc781e7e308909&img=test&content=天氣不好，哭哭",
+					"raw": "https://homeworkw5.herokuapp.com/post?id=628886ecfbbc781e7e308909&img=test&content=天氣不好，哭哭",
 					"protocol": "https",
 					"host": [
 						"homeworkw5",
@@ -99,7 +130,7 @@
 						"com"
 					],
 					"path": [
-						"posts"
+						"post"
 					],
 					"query": [
 						{
@@ -126,7 +157,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"raw": "{\n    \"id\": \"62960722ad5cac3d2a3c523c\",\n    \"img\":\"巴拉巴拉\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -134,7 +165,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://homeworkw5.herokuapp.com/imgs?id=628886ecfbbc781e7e308909&img=test",
+					"raw": "https://homeworkw5.herokuapp.com/imgs",
 					"protocol": "https",
 					"host": [
 						"homeworkw5",
@@ -143,16 +174,6 @@
 					],
 					"path": [
 						"imgs"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "628886ecfbbc781e7e308909"
-						},
-						{
-							"key": "img",
-							"value": "test"
-						}
 					]
 				}
 			},
@@ -165,7 +186,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"raw": "{\n    \"id\":\"628886ecfbbc781e7e308909\",\n    \"content\":\"\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -173,7 +194,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://homeworkw5.herokuapp.com/comments?id=628886ecfbbc781e7e308909&content=te",
+					"raw": "https://homeworkw5.herokuapp.com/comments?id=629609ebad5cac3d2a3c5267&content=tesssss",
 					"protocol": "https",
 					"host": [
 						"homeworkw5",
@@ -186,11 +207,11 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "628886ecfbbc781e7e308909"
+							"value": "629609ebad5cac3d2a3c5267"
 						},
 						{
 							"key": "content",
-							"value": "te"
+							"value": "tesssss"
 						}
 					]
 				}
@@ -204,7 +225,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"629609ebad5cac3d2a3c5267\",\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"raw": "{\n    \"id\": \"629609ebad5cac3d2a3c5267\",\n    \"likes\": 77777\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -212,7 +233,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://homeworkw5.herokuapp.com/posts?img=google&content=這是一個測試修改&id=628a0463fbbc781e7e30891c&comments={\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
+					"raw": "https://homeworkw5.herokuapp.com/post?img=google&content=這是一個測試修改&id=629609ebad5cac3d2a3c5267&comments={\"id\" :\"628886ecfbbc781e7e30890b\",\"comment\": \"Linda自己跑來留言\",    \"createAt\": \"2022-05-21\"\n}",
 					"protocol": "https",
 					"host": [
 						"homeworkw5",
@@ -220,7 +241,7 @@
 						"com"
 					],
 					"path": [
-						"posts"
+						"post"
 					],
 					"query": [
 						{
@@ -233,7 +254,7 @@
 						},
 						{
 							"key": "id",
-							"value": "628a0463fbbc781e7e30891c"
+							"value": "629609ebad5cac3d2a3c5267"
 						},
 						{
 							"key": "comments",
@@ -251,7 +272,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"999\",\n    \"tags\": [\"迷因\", \"電影\"],\n    \"type\": \"group\",\n    \"image\": \"https://imgtest\",\n    \"likes\": 666,\n    \"comments\": 8787\n}",
+					"raw": "{\n    \"id\":\"629609ebad5cac3d2a3c5267\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -259,7 +280,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://homeworkw5.herokuapp.com/posts?id=628a0463fbbc781e7e30891c",
+					"raw": "https://homeworkw5.herokuapp.com/post?id=629609ebad5cac3d2a3c5267",
 					"protocol": "https",
 					"host": [
 						"homeworkw5",
@@ -267,7 +288,7 @@
 						"com"
 					],
 					"path": [
-						"posts"
+						"post"
 					],
 					"query": [
 						{
@@ -282,7 +303,7 @@
 						},
 						{
 							"key": "id",
-							"value": "628a0463fbbc781e7e30891c"
+							"value": "629609ebad5cac3d2a3c5267"
 						},
 						{
 							"key": "comments",

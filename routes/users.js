@@ -1,19 +1,21 @@
 var  express = require('express');
 var router = express.Router();
 
+// controller
+const get_my_user = require('../controllers/get_my_user');
+const handleErrorAsync = require('../service/handErrorAsync');
 const userController = require('../controllers/user');
-const handleErrorAsync = require('../error/handErrorAsync');
-const chdckIfToken = require('../middleware/checkId');
-const checkEmail = require('../middleware/checkEmail');
-const loginVarify = require('../middleware/loginVarify');
 
-router.post('/login',chdckIfToken ,loginVarify, handleErrorAsync(async function(req, res, next) {
-    userController.login(req, res);
-})
-);
-router.post('/addUser',checkEmail, handleErrorAsync(async function(req, res, next) {
-    userController.add_user(req, res, next);
-})
-);
+// middeleware
+const checkId = require('../middleware/checkId');
+const checkEmail = require('../middleware/checkEmail');
+
+// route
+router.get('/',checkId , (req, res, next)=>{
+    handleErrorAsync(get_my_user(req, res));
+});
+router.post('/add_user', checkEmail, (req, res, next)=>{
+    handleErrorAsync(userController.add_user(req, res, next));
+});
 
 module.exports = router;
