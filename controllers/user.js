@@ -4,15 +4,15 @@ const userModel = require('../models/user');
 const successHandler = require('../service/successHangler')
 
 const userController = {
-    // login:async function (req, res){
-    //         const users = await userModel.find({email:req.body.email});
-    //         const token = await jwt.
-    //         res.status(200).json({
-    //             status: 'success',
-    //             token: token
-    //         });
-    // },
-    add_user: async function(req, res){
+    sign_in:async function (req, res){
+            const users = await userModel.find({email:req.body.email});
+            const token = await jwt.
+            res.status(200).json({
+                status: 'success',
+                token: token
+            });
+    },
+    sign_up: async function(req, res){
         // const password =  await bcrypt.hash(req.body.password, 12);
         const user = await userModel.create({
             name: req.body.name,

@@ -11,4 +11,4 @@ const checkId = function(req, res, next){
     }
 }
 
-module.exports = chdckIfToken;
+module.exports = checkId;
