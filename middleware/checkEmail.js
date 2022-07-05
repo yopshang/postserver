@@ -6,12 +6,11 @@ const e = require('express');
 
 const checkEmail = async function(req, res, next){
     const ifExecuted = await userModal.countDocuments({email: req.body.email});
-    console.log('ifExecuted:', ifExecuted)
-        if(ifExecuted>0){
-            failHandler(res, '400', 'email已存在')
-        } else {
-            next()
-        }
+    if(ifExecuted>0){
+        failHandler(res, '400', 'email已存在')
+    } else {
+        next()
     }
+}
 
 module.exports = checkEmail;

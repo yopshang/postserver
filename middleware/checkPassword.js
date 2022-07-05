@@ -1,9 +1,12 @@
-const appError = require('../service/appError');const checkPassword = function(req, res, next){
-    // if(req.body.content == undefined || req.body.content == ''){
-    //     return appError(400, "你不能發布一則空白貼文", next);
-    // } else {
-    //     next();
-    // }
+const failHandler = require('../service/failHandler');
+
+const checkPassword = function(req, res, next){
+    console.log('密碼確認',req.body.password)
+    if(req.body.password == undefined || !req.body.password ){
+        failHandler(res, 400, "請輸入密碼");
+    } else {
+        next();
+    }
 }
 
 module.exports = checkPassword;
