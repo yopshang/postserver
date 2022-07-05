@@ -1,20 +1,17 @@
-const appError = require('../service/appError');
-const handleErrorAsync = require('../service/handErrorAsync');
+const failHandler = require('../service/failHandler');
+const successHandler = require('../service/successHandler');
 // const validator = require('validator');
-const userModal = require('../models/user')
+const userModal = require('../models/user');
+const e = require('express');
 
 const checkEmail = async function(req, res, next){
-    await userModal.countDocuments({email: req.body.email}, function (err, count){
-        if(count>0){
-            appError('400', 'email已存在', next)
-        } 
-        // else if(!validator.isEmail(req.body.email)){
-        //     appError('400', 'email格式錯誤', next)
-        // } 
-        else {
-            next();
+    const ifExecuted = await userModal.countDocuments({email: req.body.email});
+    console.log('ifExecuted:', ifExecuted)
+        if(ifExecuted>0){
+            failHandler(res, '400', 'email已存在')
+        } else {
+            next()
         }
-    }); 
-}
+    }
 
 module.exports = checkEmail;
