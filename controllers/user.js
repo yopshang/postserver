@@ -1,12 +1,12 @@
 // models
 const userModel = require('../models/user');
 // service
-const successHandler = require('../service/successHangler')
+const successHandler = require('../service/successHandler')
 
 const userController = {
     sign_in:async function (req, res){
             const users = await userModel.find({email:req.body.email});
-            const token = await jwt.
+            // const token = await jwt.
             res.status(200).json({
                 status: 'success',
                 token: token
