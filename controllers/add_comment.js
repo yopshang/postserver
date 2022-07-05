@@ -1,7 +1,7 @@
 // models
 const commentModel = require('../models/comment');
 // service
-const successHandler = require('../service/successHangler')
+const successHandler = require('../service/successHandler')
 
 async function add_comment(req, res){
         const comments = await commentModel.create({

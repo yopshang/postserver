@@ -3,7 +3,7 @@ const postModel = require('../models/post');
 const userModel = require('../models/user');
 // service
 const appError = require('../service/appError')
-const successHandler = require('../service/successHangler')
+const successHandler = require('../service/successHandler')
 
 const postController = {
     // 新增貼文

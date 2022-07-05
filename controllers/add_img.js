@@ -1,6 +1,6 @@
 const imgModel = require('../models/img');
 // service
-const successHandler = require('../service/successHangler')
+const successHandler = require('../service/successHandler')
 
 async function add_img(req, res){
         await imgModel.create(
