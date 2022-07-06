@@ -8,7 +8,7 @@ const bycript = require('bycript');
 const {isAuth, generateJWT} = require('../service/isAuth');
 
 const userController = {
-    sign_in:async function (req, res){
+    sign_in:async function (req, res){ // 登入
             const user = await userModel.find({email:req.body.email});
             const ifMatch = await bycript.compare(users.password, res); // 符合就會給true
             if(ifMatch){
@@ -24,7 +24,7 @@ const userController = {
             //     token: token
             // });
     },
-    sign_up: async function(req, res){
+    sign_up: async function(req, res){ // 註冊
         // const password =  await bcrypt.hash(req.body.password, 12);
         const user = await userModel.create({
             name: req.body.name,
@@ -32,7 +32,16 @@ const userController = {
         })
         successHandler(res, 200, '註冊成功', req.body.name)
         // generateJWT(user, 200, res);
-    }
+    },
+    updatePassword: async function(req, res){ // 重設密碼
+        
+    },
+    get_profile: async function(req, res){ // 取得個人資料
+
+    },
+    edit_profile: async function(req, res){ // 更新個人資料
+
+    },
 }
 
 module.exports = userController;
