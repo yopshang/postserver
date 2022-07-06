@@ -10,7 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const postRouter = require('./routes/post');
-const imgRouter = require('./routes/img');
+const imgRouter = require('./routes/upload');
 const commentRouter = require('./routes/comments');
 
 const dotenv = require('dotenv');
