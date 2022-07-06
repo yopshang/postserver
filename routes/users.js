@@ -10,7 +10,7 @@ const checkId = require('../middleware/checkId');
 const checkEmail = require('../middleware/checkEmail');
 const checkPassword = require('../middleware/checkPassword');
 const ifPasswordCorrect = require('../middleware/ifPasswordCorrect');
-const {isAuth, generateJWT} = require('../service/isAuth';)
+const {isAuth, generateJWT} = require('../service/isAuth');
 
 // route
 router.get('/',checkId , (req, res, next)=>{

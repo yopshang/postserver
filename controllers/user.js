@@ -37,7 +37,10 @@ const userController = {
         })
     },
     get_profile: async function(req, res){ // 取得個人資料
-
+        const user = await userModel.find({
+            email:req.body.email
+        })
+        successHandler(res, 200, '取得個人資料', user)
     },
     edit_profile: async function(req, res){ // 更新個人資料
 
