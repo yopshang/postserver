@@ -40,10 +40,20 @@ const userController = {
         const user = await userModel.find({
             email:req.body.email
         })
-        successHandler(res, 200, '取得個人資料', user)
+        if(user){
+            successHandler(res, 200, '取得個人資料', user)
+        } else {
+            failHandler(res, 400, '取得個人資料失敗')
+        }
     },
     edit_profile: async function(req, res){ // 更新個人資料
-
+        const user = await userModel.updateOne({
+            email:req.body.email
+        },{
+            $set:{
+                name: req.body.name,
+            }
+        })
     },
 }
 
