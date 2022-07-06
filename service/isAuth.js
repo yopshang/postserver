@@ -21,11 +21,11 @@ const isAuth = handErrorAsync(async (req, res, next) => { // 驗證登入會以m
         resolve(payload)
       }
     })
-    const currentUser = await userController.findById(decode.id); // 使用解碼出來的id去db撈目前使用者帳號
-
-    req.user = currentUser; // 字定義req中的User為目前撈到的user
-    next();
   })
+  const currentUser = await userController.findById(decode.id); // 使用解碼出來的id去db撈目前使用者帳號
+
+  req.user = currentUser; // 字定義req中的User為目前撈到的user
+  next();
 })
 
 const generateJWT = (user, statusCode, res)=>{

@@ -3,14 +3,13 @@ const userModel = require('../models/user');
 // service
 const successHandler = require('../service/successHandler')
 const failHandler = require('../service/failHandler')
-const bycript = require('bycript');
-const {isAuth, generateJWT} = require('../service/isAuth');
 const bcrypt = require('bcrypt');
+const {isAuth, generateJWT} = require('../service/isAuth');
 
 const userController = {
     sign_in:async function (req, res){ // 登入
             const user = await userModel.find({email:req.body.email});
-            const ifMatch = await bycript.compare(users.password, res); // 符合就會給true
+            const ifMatch = await bcrypt.compare(users.password, res); // 符合就會給true
             if(ifMatch){
                 // 回傳token
                 generateJWT(user, 200, res);
