@@ -4,8 +4,8 @@ const userModel = require('../models/user');
 const successHandler = require('../service/successHandler')
 const failHandler = require('../service/failHandler')
 const bycript = require('bycript');
-// const generateJWT = require('../controllers/generateJWT');
 const {isAuth, generateJWT} = require('../service/isAuth');
+const bcrypt = require('bcrypt');
 
 const userController = {
     sign_in:async function (req, res){ // 登入
@@ -13,16 +13,10 @@ const userController = {
             const ifMatch = await bycript.compare(users.password, res); // 符合就會給true
             if(ifMatch){
                 // 回傳token
-                // const token = await jwt.sign({id:users.id}, process.env.JWT_SECRET, {})
-                // successHandler(res, 200, '登入成功', token)
                 generateJWT(user, 200, res);
             } else {
                 failHandler(res, 400, '密碼或是email錯誤')
             }
-            // res.status(200).json({
-            //     status: 'success',
-            //     token: token
-            // });
     },
     sign_up: async function(req, res){ // 註冊
         // const password =  await bcrypt.hash(req.body.password, 12);
@@ -31,10 +25,16 @@ const userController = {
             email: req.body.email,
         })
         successHandler(res, 200, '註冊成功', req.body.name)
-        // generateJWT(user, 200, res);
     },
-    updatePassword: async function(req, res){ // 重設密碼
-        
+    updatePassword: async function(req, res){ // 重設密碼{
+        const new_password = await bcrypt.hash(req.body.password)
+        await userModel.updateOne({
+            email: req.body.email
+        },{
+            $set:{
+                password:new_password
+            }
+        })
     },
     get_profile: async function(req, res){ // 取得個人資料
 

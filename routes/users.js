@@ -10,6 +10,7 @@ const checkId = require('../middleware/checkId');
 const checkEmail = require('../middleware/checkEmail');
 const checkPassword = require('../middleware/checkPassword');
 const ifPasswordCorrect = require('../middleware/ifPasswordCorrect');
+const {isAuth, generateJWT} = require('../service/isAuth';)
 
 // route
 router.get('/',checkId , (req, res, next)=>{
@@ -24,10 +25,10 @@ router.post('/sign_in', checkEmail, checkPassword, ifPasswordCorrect,(req, res, 
 router.patch('/updatePassword', checkEmail, checkPassword, ifPasswordCorrect,(req, res, next)=>{
     handleErrorAsync(userController.updatePassword(req, res, next));
 });
-router.get('/profile', checkEmail, checkPassword, ifPasswordCorrect,(req, res, next)=>{ // 要擺放isAuth
+router.get('/profile', isAuth,(req, res, next)=>{ // 要擺放isAuth
     handleErrorAsync(userController.get_profile(req, res, next));
 });
-router.post('/profile', checkEmail, checkPassword, ifPasswordCorrect,(req, res, next)=>{
+router.post('/profile',isAuth,(req, res, next)=>{ // 要擺放isAuth
     handleErrorAsync(userController.edit_profile(req, res, next));
 });
 
