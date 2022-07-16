@@ -12,6 +12,7 @@ const postsRouter = require('./routes/posts');
 const postRouter = require('./routes/post');
 const imgRouter = require('./routes/img');
 const commentRouter = require('./routes/comments');
+const uploadRouter = require('./routes/upload');
 
 const dotenv = require('dotenv');
 dotenv.config({path:"./config.env"});
@@ -55,6 +56,7 @@ app.use('/post', postRouter);
 app.use('/posts', postsRouter);
 app.use('/imgs', imgRouter);
 app.use('/comments', commentRouter);
+app.use('/upload', uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
